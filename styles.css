@@ -41,6 +41,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     outline: 2px solid var(--white);
 }
 #current-month-year{
@@ -50,6 +52,8 @@ body{
     justify-content: space-around;
     align-items: center;
     background-color: var(--pink);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 #current-month-year i{
     font-size: 2rem;
@@ -102,6 +106,7 @@ body{
     font-size: 1rem;
     background-color: var(--pink);
     outline: 2px solid var(--white);
+    border-radius: 10px;
 }
 #journal-date{
     display: flex;
@@ -120,4 +125,25 @@ button{
     width: 40%;
     height: 1.5rem;
     cursor: pointer;
+}
+@media screen and (max-width: 700px) {
+    #container{
+        width: 100vw;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0;
+    }
+    #calendar{
+        width: 21rem;
+    }
+    #weekdays div{
+        width: calc(21rem/7);
+    }
+    #days div{
+        width: calc(21rem/7);
+    }
+    #journal{
+        width: 85vw;
+    }
 }
