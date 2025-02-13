@@ -30,14 +30,17 @@ let days = "";
 
 for (i = day + 1; i > 0; i--){
     days += `<div class="prev-days">${prevMonthLastDay - i + 1}</div>`
-}; //CALCULATES PREV MONTH DAYS TO SHOW
+};  //CALCULATES PREV MONTH DAYS TO SHOW
 
 for (i = 1; i <= lastDay; i++){
-    days += `<div>${i}</div>`
-    currentMonthDate.innerHTML = days
+    if (i === date.getDate()){
+        days += `<div class="today">${i}</div>`
+    } else{
+    days += `<div>${i}</div>`;
+    }
 }   //CALCULATES CURRENT MONTH DAYS TO SHOW
 
 for (i = 1; i <= nextDaysIndex; i++){
     days += `<div class="next-days">${i}</div>`
     currentMonthDate.innerHTML = days
-} //CALCULATES NEXT MONTH DAYS TO SHOW
+}   //CALCULATES NEXT MONTH DAYS TO SHOW
