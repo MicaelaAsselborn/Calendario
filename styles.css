@@ -1,9 +1,11 @@
 :root{
     --black: rgb(31, 30, 30);
+    --grey: rgb(128, 128, 128);
     --pink: pink;
     --lilac: rgb(169, 132, 212);
     --white: #fff;
     --blue: rgb(54, 54, 82);
+    --dark-blue: rgb(46, 46, 68);
 }
 *{
     margin: 0;
@@ -22,14 +24,14 @@ body{
 }
 #container{
     width: min(62rem, 90%);
-    height: 90dvh;
+    height: 70dvh;
     border-radius: 10px;
     margin: auto;
     background-color: var(--blue);
     color: var(--white);
     display: flex;
-    gap: 10px;
-    padding: 10px;
+    gap: .8rem;
+    padding: .8rem;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -76,14 +78,27 @@ body{
     width: calc(31rem/7);
     height: 4rem;
     text-align: end;
-    padding-top: 4px;
-    padding-right: 8px;
+    padding-top: .25rem;
+    padding-right: .5rem;
     outline: 1px solid var(--white);
+    font-size: .8rem;
+}
+.prev-days, .next-days{
+    background-color: var(--dark-blue);
+    color: var(--grey);
+}
+.today{
+    background-color: var(--lilac);
+}
+#days div:hover{
+    background-color: var(--white);
+    color: var(--lilac);
+    font-weight: bold;
 }
 #journal{
     width: min(31rem, 45%);
-    height: 72%;
-    padding: 10px;
+    height: 95%;
+    padding: .8rem;
     font-size: 1rem;
     background-color: var(--pink);
     outline: 2px solid var(--white);
@@ -92,5 +107,19 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
+    gap: .8rem;
+}
+#notes{
+    display: flex;
+    margin:  .5rem auto;
+    width: 95%;
+    height: 85%;
+    outline: 1px solid;
+}
+button{
+    width: 40%;
+    height: 1.5rem;
+    cursor: pointer;
+}
+#notes button{
 }
