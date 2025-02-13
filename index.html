@@ -11,14 +11,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="calendar">
-            <div class="date">
-                <i class="fa-solid fa-arrow-left" style="color: #B197FC;"></i>
-                <h1 class="month">Febrero 2025</h1>
-                <i class="fa-solid fa-arrow-right" style="color: #B197FC;"></i>
+    <div id="container">
+        <div id="calendar">
+            <div id="current-month-year">
+                <i class="fa-solid fa-arrow-left"></i>
+                <h1 id="month">Febrero 2025</h1>
+                <i class="fa-solid fa-arrow-right"></i>
             </div>
-            <div class="weekdays">
+            <div id="weekdays">
                 <div>Lun</div>
                 <div>Mar</div>
                 <div>Mie</div>
@@ -27,7 +27,7 @@
                 <div>Sáb</div>
                 <div>Dom</div>
             </div>
-            <div class="days">
+            <div id="days">
                 <div class="prev-days">26</div>
                 <div class="prev-days">27</div>
                 <div class="prev-days">28</div>
@@ -64,9 +64,13 @@
                 <div>28</div>
                 <div class="nexts-days">1</div>
         </div>
-        <div class="journal">
-            <P class="current-date">Jueves 13 de Febrero, 2025</P>
+    </div>
+    <div id="journal">
+        <div id="journal-date">
+        <i class="fa-solid fa-calendar-days"></i>
+        <P id="current-date">Jueves 13 de Febrero, 2025</P>
         </div>
+        <div id="notes"></div>
     </div>
     <script src="scripts.js"></script>
 </body>
