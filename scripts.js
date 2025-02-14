@@ -1,15 +1,13 @@
 //CONSTANTES
 const date = new Date();
-
 const day = date.getDay();
 const numberDate = date.getDate();
 const month = date.getMonth();
 const year = date.getFullYear();
 const lastDay = new Date(year, month + 1, 0).getDate();
+const firstDayIndex = new Date(year, month, 1).getDay;
 const prevMonthLastDay = new Date(year, month, 0).getDate();
-const nextDaysIndex = 7 - day - 1;
-const totalCells = (Math.ceil((day + lastDay)/7)*7)-1;
- 
+
 //ARRAYS
 const monthName = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agoto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
 ];
@@ -38,6 +36,7 @@ function renderCalendar(){
     const lastDay = new Date(year, month + 1, 0).getDate();
     const prevMonthLastDay = new Date(year, month, 0).getDate();
     const nextDaysIndex = 7 - day - 1;
+    const totalCells = (Math.ceil((day + lastDay)/7)*7)-1;
 
     //DATES
     monthText.innerText = monthName[month];
@@ -45,7 +44,7 @@ function renderCalendar(){
     dateText.innerText = weekday[day] + " " + numberDate + " de " + monthName[month] + ", " + year
 
 
-    for (i = day + 1; i > 0; i--){
+    for (i = day; i > 0; i--){
         days += `<div class="prev-days">${prevMonthLastDay - i + 1}</div>`
     };  //CALCULATES PREV MONTH DAYS TO SHOW
     
@@ -56,7 +55,8 @@ function renderCalendar(){
         days += `<div>${i}</div>`;
         }
     }   //CALCULATES CURRENT MONTH DAYS TO SHOW
-    let nextDays = totalCells - (day + lastDay)
+
+    let nextDays = totalCells - (day + lastDay) + 1
     for (i = 1; i <= nextDays; i++){
         days += `<div class="next-days">${i}</div>`
         currentMonthDate.innerHTML = days
