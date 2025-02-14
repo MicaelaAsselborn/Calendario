@@ -113,20 +113,28 @@ body{
     justify-content: flex-end;
     align-items: center;
     gap: .8rem;
+    font-weight: bold;
 }
 #notes{
     display: flex;
     margin:  .5rem auto;
     width: 95%;
-    height: 85%;
+    height: 75%;
     outline: 1px solid;
 }
 button{
-    width: 40%;
-    height: 1.5rem;
+    width: 50%;
+    height: 2.5rem;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    background-color: var(--lilac);
+    color: var(--white);
+    border: 1px solid var(--white);
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     #container{
         width: 100vw;
         height: 100dvh;
@@ -145,5 +153,11 @@ button{
     }
     #journal{
         width: 90vw;
+    }
+    #notes{
+        height: 60%;
+    }
+    button{
+        width: 40%;
     }
 }
