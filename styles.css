@@ -20,7 +20,7 @@ body{
     height: 100dvh;
     display: flex;
     margin: auto;
-    background-image: url(/img/background.jpg);
+    background-image: url(img/background.jpg);
 }
 #container{
     width: 62rem;
