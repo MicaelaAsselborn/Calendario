@@ -23,8 +23,8 @@ body{
     background-image: url(/img/background.jpg);
 }
 #container{
-    width: min(62rem, 90%);
-    height: 70dvh;
+    width: 62rem;
+    height: 80dvh;
     border-radius: 10px;
     margin: auto;
     background-color: var(--blue);
@@ -94,14 +94,14 @@ body{
 .today{
     background-color: var(--lilac);
 }
-#days div:hover{
+#days div:hover, day{
     background-color: var(--white);
     color: var(--lilac);
     font-weight: bold;
 }
 #journal{
     width: min(31rem, 45%);
-    height: 95%;
+    height: min(95%, 25rem);
     padding: .8rem;
     font-size: 1rem;
     background-color: var(--pink);
@@ -120,7 +120,8 @@ body{
     margin:  .5rem auto;
     width: 95%;
     height: 75%;
-    outline: 1px solid;
+    outline: 1px solid var(--white);
+    border-radius: 10px;
 }
 button{
     width: 50%;
@@ -133,6 +134,7 @@ button{
     background-color: var(--lilac);
     color: var(--white);
     border: 1px solid var(--white);
+    border-radius: 10px;
 }
 @media screen and (max-width: 800px) {
     #container{

@@ -44,7 +44,7 @@ function renderCalendar(){
     
     for (i = 1; i <= lastDay; i++){
         if (i === date.getDate() && month === new Date().getMonth()){
-            days += `<div class="today">${i}</div>`
+            days += `<div class="today day">${i}</div>`
         } else{
         days += `<div>${i}</div>`;
         }
@@ -54,7 +54,7 @@ function renderCalendar(){
     for (i = 1; i <= nextDays; i++){
         days += `<div class="next-days">${i}</div>`
         currentMonthDate.innerHTML = days
-    }   //CALCULATES NEXT MONTH DAYS TO SHOW
+    }   //CALCULATES NEXT MONTH DAYS TO SHOw
 }
 //PREV & NEXT FUNCTIONS
 prevButton.addEventListener("click", ()=>{
