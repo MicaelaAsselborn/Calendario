@@ -1,12 +1,7 @@
-//CONSTANTES
+//GLOBAL VALUES
 const date = new Date();
 const day = date.getDay();
 const numberDate = date.getDate();
-const month = date.getMonth();
-const year = date.getFullYear();
-const lastDay = new Date(year, month + 1, 0).getDate();
-const firstDayIndex = new Date(year, month, 1).getDay;
-const prevMonthLastDay = new Date(year, month, 0).getDate();
 
 //ARRAYS
 const monthName = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agoto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
@@ -42,7 +37,6 @@ function renderCalendar(){
     monthText.innerText = monthName[month];
     yearText.innerText = year;
     dateText.innerText = weekday[day] + " " + numberDate + " de " + monthName[month] + ", " + year
-
 
     for (i = day; i > 0; i--){
         days += `<div class="prev-days">${prevMonthLastDay - i + 1}</div>`
