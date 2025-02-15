@@ -12,6 +12,7 @@
     <link rel="icon" type="image/svg" href="img/icon.svg">
 </head>
 <body>
+    <div class="background"></div>
     <div id="container">
         <div id="calendar">
             <div id="current-month-year">
@@ -39,7 +40,19 @@
         </div>
         <div id="notes">
             <div id="event-creation">
-                <button id="save-event" onclick="saveEvent()">Agregar evento</button>
+                
+                <form>
+                    <h2>Nuevo evento</h2>
+                    <label for="event-name">Nombre del evento: </label>
+                    <input type="text" id="event-name">
+                    <br>
+                    <label for="event-init">Inicio del evento:</label>
+                    <input type="date" id="event-init">
+                    <br>
+                    <label for="event-end">Fin del evento:</label>
+                    <input type="date" id="event-end">
+                    <button id="save-event" onclick="saveEvent()">Agregar evento</button>
+                </form>
             </div>
         </div>
         <div id="buttons-container">
