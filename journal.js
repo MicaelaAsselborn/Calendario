@@ -1,6 +1,6 @@
 function addEvent(){
-let event = "";
-event += <li>Evento 1</li>
+document.querySelector(".background").style.display = "block";
+document.querySelector("#event-creation").style.display = "block";
 }
 function addNote(){
 
