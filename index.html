@@ -38,10 +38,13 @@
         <P id="current-date"></P>
         </div>
         <div id="notes">
+            <div id="event-creation">
+                <button id="save-event" onclick="saveEvent()">Agregar evento</button>
+            </div>
         </div>
         <div id="buttons-container">
-            <button id="add-note">Agregar evento</button>
-            <button>Agregar nota</button>
+            <button id="add-event" onclick="addEvent()">Agregar evento</button>
+            <button id="add-note" onclick="addNote()">Agregar nota</button>
         </div>
     </div>
     <script src="render-calendar.js"></script>
