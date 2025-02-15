@@ -69,7 +69,12 @@ nextButton.addEventListener("click", ()=>{
 
 //SELECTED DAYS
 function changeCellColor(){
-    alert("La función funciona!")
+    let previouslySelected = document.querySelector(".selected");
+    if (previouslySelected){
+        previouslySelected.classList.remove("selected")
+    }
+    const clickedCell = event.target;
+    clickedCell.classList.toggle("selected");
 }
 
 //INITIAL RENDER

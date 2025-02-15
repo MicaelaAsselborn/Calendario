@@ -78,6 +78,10 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
+.selected{
+    background-color: var(--white);
+    color: var(--lilac);
+}
 #days div{
     width: calc(31rem/7);
     height: 4rem;
