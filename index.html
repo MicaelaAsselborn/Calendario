@@ -40,9 +40,10 @@
         </div>
         <div id="notes">
             <div id="event-creation">
-                
                 <form>
+                    <i class="fa-solid fa-xmark close" onclick="closeDiv()"></i>
                     <h2>Nuevo evento</h2>
+
                     <label for="event-name">Nombre del evento: </label>
                     <input type="text" id="event-name">
                     <br>
@@ -52,6 +53,14 @@
                     <label for="event-end">Fin del evento:</label>
                     <input type="date" id="event-end">
                     <button id="save-event" onclick="saveEvent()">Agregar evento</button>
+                </form>
+            </div>
+            <div id="note-creation">
+                <form>
+                    <i class="fa-solid fa-xmark close" onclick="closeDiv()"></i>
+                    <h2>Nueva nota</h2>
+                    <textarea></textarea>
+                    <button id="save-note" onclick="saveNote()">Agregar nota</button>
                 </form>
             </div>
         </div>

@@ -156,6 +156,24 @@ body{
     z-index: 2;
     display: none;
 }
+#note-creation{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: min(80vw, 400px);
+    height: min(50vw, 400px);
+    background-color: var(--pink);
+    outline: 2px solid var(--white);
+    border-radius: 10px;
+    display: flex;
+    padding: 20px;
+    z-index: 2;
+    display: none;
+}
+form i{
+    cursor: pointer;
+}
 h2{
     text-align: center;
 }
