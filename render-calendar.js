@@ -7,6 +7,7 @@ const numberDate = date.getDate();
 const monthName = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agoto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
 ];
 const weekday = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+const weekdayV2 = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 
 //QUERY SELECTOR
 const monthText = document.querySelector("#month");
@@ -112,7 +113,7 @@ function changeCellColor(){
         year: clickedCell.getAttribute("data-year"),
         weekday: clickedCell.getAttribute("data-weekday")
     }
-    console.log(selectedDay)
+    dateText.innerText = `${weekdayV2[selectedDay.weekday]} ${selectedDay.day} de ${monthName[selectedDay.month]}, ${selectedDay.year}`
 }
 
 //INITIAL RENDER
