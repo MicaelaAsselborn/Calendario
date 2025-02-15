@@ -79,8 +79,9 @@ body{
     flex-wrap: wrap;
 }
 .selected{
-    background-color: var(--white);
-    color: var(--lilac);
+    background-color: var(--white)!important;
+    color: var(--lilac)!important;
+    font-weight: bold!important;
 }
 #days div{
     width: calc(31rem/7);
