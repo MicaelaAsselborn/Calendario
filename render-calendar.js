@@ -39,20 +39,50 @@ function renderCalendar(){
     dateText.innerText = weekday[day] + " " + numberDate + " de " + monthName[month] + ", " + year
 
     for (i = day; i > 0; i--){
-        days += `<div class="prev-days" onclick="changeCellColor()">${prevMonthLastDay - i + 1}</div>`
+        let prevDate = new Date( year, month, - i + 1)
+        days += `<div 
+        class="prev-days" 
+        onclick="changeCellColor()" 
+        data-day="${prevDate.getDate()}" 
+        data-month="${prevDate.getMonth()}" 
+        data-year="${prevDate.getFullYear()}" 
+        data-weekday="${prevDate.getDay()}"
+        >${prevMonthLastDay - i + 1}</div>`
     };  //CALCULATES PREV MONTH DAYS TO SHOW
     
     for (i = 1; i <= lastDay; i++){
+        let currentDate = new Date(year, month, i)
         if (i === date.getDate() && month === new Date().getMonth()){
-            days += `<div class="today day" onclick="changeCellColor()">${i}</div>`
+            days += `<div 
+            class="today day" 
+            onclick="changeCellColor()" 
+            data-day="${currentDate.getDate()}" 
+            data-month="${currentDate.getMonth()}" 
+            data-year="${currentDate.getFullYear()}" 
+            data-weekday="${currentDate.getDay()}"
+            >${i}</div>`
         } else{
-        days += `<div onclick="changeCellColor()">${i}</div>`;
+            days += `<div 
+            onclick="changeCellColor()" 
+            data-day="${currentDate.getDate()}" 
+            data-month="${currentDate.getMonth()}" 
+            data-year="${currentDate.getFullYear()}" 
+            data-weekday="${currentDate.getDay()}"
+            >${i}</div>`;
         }
     }   //CALCULATES CURRENT MONTH DAYS TO SHOW
 
     let nextDays = totalCells - (day + lastDay) + 1
     for (i = 1; i <= nextDays; i++){
-        days += `<div class="next-days" onclick="changeCellColor()">${i}</div>`
+        let nextDate = new Date(year, month + 1, i)
+        days += `<div 
+        class="next-days" 
+        onclick="changeCellColor()" 
+        data-day="${nextDate.getDate()}" 
+        data-month="${nextDate.getMonth()}" 
+        data-year="${nextDate.getFullYear()}" 
+        data-weekday="${nextDate.getDay()}"
+        >${i}</div>`
         currentMonthDate.innerHTML = days
     }   //CALCULATES NEXT MONTH DAYS TO SHOW
 }
@@ -75,6 +105,14 @@ function changeCellColor(){
     }
     const clickedCell = event.target;
     clickedCell.classList.toggle("selected");
+
+    let selectedDay = {
+        day: clickedCell.getAttribute("data-day"),
+        month: clickedCell.getAttribute("data-month"),
+        year: clickedCell.getAttribute("data-year"),
+        weekday: clickedCell.getAttribute("data-weekday")
+    }
+    console.log(selectedDay)
 }
 
 //INITIAL RENDER
