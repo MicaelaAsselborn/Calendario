@@ -123,6 +123,10 @@ body{
     outline: 1px solid var(--white);
     border-radius: 10px;
 }
+#buttons-container{
+    display: flex;
+    gap: 5px;
+}
 button{
     width: 50%;
     height: 2.5rem;

@@ -39,23 +39,24 @@ function renderCalendar(){
     dateText.innerText = weekday[day] + " " + numberDate + " de " + monthName[month] + ", " + year
 
     for (i = day; i > 0; i--){
-        days += `<div class="prev-days">${prevMonthLastDay - i + 1}</div>`
+        days += `<div class="prev-days" onclick="changeCellColor()">${prevMonthLastDay - i + 1}</div>`
     };  //CALCULATES PREV MONTH DAYS TO SHOW
     
     for (i = 1; i <= lastDay; i++){
         if (i === date.getDate() && month === new Date().getMonth()){
-            days += `<div class="today day">${i}</div>`
+            days += `<div class="today day" onclick="changeCellColor()">${i}</div>`
         } else{
-        days += `<div>${i}</div>`;
+        days += `<div onclick="changeCellColor()">${i}</div>`;
         }
     }   //CALCULATES CURRENT MONTH DAYS TO SHOW
 
     let nextDays = totalCells - (day + lastDay) + 1
     for (i = 1; i <= nextDays; i++){
-        days += `<div class="next-days">${i}</div>`
+        days += `<div class="next-days" onclick="changeCellColor()">${i}</div>`
         currentMonthDate.innerHTML = days
-    }   //CALCULATES NEXT MONTH DAYS TO SHOw
+    }   //CALCULATES NEXT MONTH DAYS TO SHOW
 }
+
 //PREV & NEXT FUNCTIONS
 prevButton.addEventListener("click", ()=>{
     date.setMonth(date.getMonth() - 1)
@@ -66,5 +67,11 @@ nextButton.addEventListener("click", ()=>{
         renderCalendar()
 })
 
+//SELECTED DAYS
+function changeCellColor(){
+    alert("La función funciona!")
+}
+
 //INITIAL RENDER
-renderCalendar()
+renderCalendar();
+
