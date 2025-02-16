@@ -49,7 +49,7 @@ function renderCalendar(){
         data-year="${prevDate.getFullYear()}" 
         data-weekday="${prevDate.getDay()}"
         >${prevMonthLastDay - i + 1}
-        <ul></ul>
+        <span></span>
         </div>`
     };  //CALCULATES PREV MONTH DAYS TO SHOW
     
@@ -64,7 +64,7 @@ function renderCalendar(){
             data-year="${currentDate.getFullYear()}" 
             data-weekday="${currentDate.getDay()}"
             >${i}
-            <ul></ul>
+            <span></span>
             </div>`
         } else{
             days += `<div 
@@ -74,7 +74,7 @@ function renderCalendar(){
             data-year="${currentDate.getFullYear()}" 
             data-weekday="${currentDate.getDay()}"
             >${i}
-            <ul></ul>
+            <span></span>
             </div>`;
         }
     }   //CALCULATES CURRENT MONTH DAYS TO SHOW
@@ -90,7 +90,7 @@ function renderCalendar(){
         data-year="${nextDate.getFullYear()}" 
         data-weekday="${nextDate.getDay()}"
         >${i}
-        <ul></ul>
+        <span></span>
         </div>`
         currentMonthDate.innerHTML = days
     }   //CALCULATES NEXT MONTH DAYS TO SHOW
@@ -126,4 +126,3 @@ function changeCellColor(){
 
 //INITIAL RENDER
 renderCalendar();
-
