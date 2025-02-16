@@ -20,7 +20,7 @@ const nameInput = document.querySelector("#event-name");
 const startInput = document.querySelector("#event-init");
 const endInput = document.querySelector("#event-end");
 
-let eventData = [];
+let eventData = JSON.parse(localStorage.getItem("eventData")) || [];
 let noteData = [];
 
 function saveEvent(){
@@ -40,14 +40,12 @@ function saveEvent(){
             end: endInputValue,
             };
 
-            let events = JSON.parse(localStorage.getItem("eventData")) || [];
-            
             eventData.push(newEvent);
 
-            localStorage.setItem("eventData", JSON.stringify(events));
+            localStorage.setItem("eventData", JSON.stringify(eventData));
 
-            console.log("Evento guardado: ", newEvent.name)
-            console.log(eventData)
+            console.log("Evento guardado: ", newEvent)
+            console.log("Lista de eventos: ", eventData)
         }
     }
 }
