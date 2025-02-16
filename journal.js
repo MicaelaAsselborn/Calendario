@@ -15,19 +15,20 @@ function closeDiv(){
     document.querySelector("#note-creation").style.display = "none";
 }
 
-//OBTAIN INPUTS
+//SAVE INFO FUNCTIONS
 const nameInput = document.querySelector("#event-name");
 const startInput = document.querySelector("#event-init");
 const endInput = document.querySelector("#event-end");
 
-//SAVE INFO FUNCTIONS
 let eventData = {};
-
-const nameInputValue = nameInput.value;
-const startInputValue = startInput.value;
-const endInputValue = endInput.value;
+let noteData = {};
 
 function saveEvent(){
+
+    const nameInputValue = nameInput.value;
+    const startInputValue = startInput.value;
+    const endInputValue = endInput.value;
+
     if (nameInputValue && startInputValue && endInputValue){
         if (startInputValue > endInputValue){
             alert("¡La fecha de inicio no puede ser después que la fecha de finalización!")
@@ -35,6 +36,13 @@ function saveEvent(){
             eventData["name"] = nameInputValue;
             eventData["init"] = startInputValue;
             eventData["end"] = endInputValue;
+
+            localStorage.setItem("eventData", JSON.stringify(eventData));
+            
+            const savedEventData = JSON.parse(localStorage.getItem("eventData"));
+            const eventSpan = document.querySelector("span");
+            eventSpan.innerHTML += `<span>${toString(savedEventData.name)}</span>`
         }
     }
+    
 }
