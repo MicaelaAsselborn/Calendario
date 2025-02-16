@@ -20,8 +20,8 @@ const nameInput = document.querySelector("#event-name");
 const startInput = document.querySelector("#event-init");
 const endInput = document.querySelector("#event-end");
 
-let eventData = {};
-let noteData = {};
+let eventData = [];
+let noteData = [];
 
 function saveEvent(){
 
@@ -33,16 +33,20 @@ function saveEvent(){
         if (startInputValue > endInputValue){
             alert("¡La fecha de inicio no puede ser después que la fecha de finalización!")
         } else{
-            eventData["name"] = nameInputValue;
-            eventData["init"] = startInputValue;
-            eventData["end"] = endInputValue;
+            const newEvent =
+            {
+            name: nameInputValue,
+            init: startInputValue,
+            end: endInputValue,
+            };
 
-            localStorage.setItem("eventData", JSON.stringify(eventData));
-            
-            const savedEventData = JSON.parse(localStorage.getItem("eventData"));
-            const eventSpan = document.querySelector("span");
-            eventSpan.innerHTML += `<span>${toString(savedEventData.name)}</span>`
+            let events = JSON.parse(localStorage.getItem("eventData"));
+            eventData.push(newEvent)
+
+            localStorage.setItem("eventData", JSON.stringify("events"));
+
+            console.log("Evento guardado: ", newEvent.name)
+            console.log(eventData)
         }
     }
-    
 }
