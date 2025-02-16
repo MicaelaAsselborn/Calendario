@@ -124,5 +124,3 @@ function changeCellColor(){
 
 //INITIAL RENDER
 document.addEventListener("DOMContentLoaded", renderCalendar());
-
-
