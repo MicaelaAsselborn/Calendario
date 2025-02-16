@@ -41,25 +41,33 @@
         <div id="notes">
             <div id="event-creation">
                 <form>
-                    <i class="fa-solid fa-xmark close" onclick="closeDiv()"></i>
+                    <div class="close-icon-container">
+                        <i class="fa-solid fa-xmark close" onclick="closeDiv()"></i>
+                    </div>
                     <h2>Nuevo evento</h2>
-                    <label for="event-name">Nombre del evento: </label>
-                    <input type="text" id="event-name" required>
-                    <br>
-                    <label for="event-init">Inicio del evento:</label>
-                    <input type="date" id="event-init" required>
-                    <br>
-                    <label for="event-end">Fin del evento:</label>
-                    <input type="date" id="event-end" required>
-                    <button id="save-event" onclick="saveEvent()">Agregar evento</button>
+                    <div class="form-container">
+                        <label for="event-name">Nombre del evento: </label>
+                        <input type="text" id="event-name" required>
+                        <label for="event-init">Inicio del evento:</label>
+                        <input type="date" id="event-init" required>
+                        <label for="event-end">Fin del evento:</label>
+                        <input type="date" id="event-end" required>
+                    </div>
+                    <div class="modal-button-container">
+                        <button id="save-event" onclick="saveEvent()">Agregar evento</button>
+                    </div>
                 </form>
             </div>
             <div id="note-creation">
                 <form>
-                    <i class="fa-solid fa-xmark close" onclick="closeDiv()"></i>
+                    <div class="close-icon-container">
+                        <i class="fa-solid fa-xmark close" onclick="closeDiv()"></i>
+                    </div>
                     <h2>Nueva nota</h2>
                     <textarea></textarea>
-                    <button id="save-note" onclick="saveNote()">Agregar nota</button>
+                    <div class="modal-button-container">
+                        <button id="save-note" onclick="saveNote()">Agregar nota</button>
+                    </div>
                 </form>
             </div>
         </div>
