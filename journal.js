@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", ()=>{
+
 //OPEN DIVS FUNCTIONS
 function addEvent(){
     document.querySelector(".background").style.display = "block";
@@ -44,10 +46,12 @@ function saveEvent(){
             
             eventData.push(newEvent);
 
-            localStorage.setItem("eventData", JSON.stringify("events"));
+            localStorage.setItem("eventData", JSON.stringify(events));
 
             console.log("Evento guardado: ", newEvent.name)
             console.log(eventData)
         }
     }
 }
+
+})
