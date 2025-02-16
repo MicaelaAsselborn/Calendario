@@ -2,6 +2,8 @@
 const date = new Date();
 const day = date.getDay();
 const numberDate = date.getDate();
+const month = date.getMonth();
+const year = date.getFullYear();
 
 //ARRAYS
 const monthName = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agoto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
@@ -29,31 +31,30 @@ function renderCalendar(){
     const numberDate = date.getDate();
     const month = date.getMonth();
     const year = date.getFullYear();
+    const firstDayIndex = new Date(year, month, 1).getDay();
     const lastDay = new Date(year, month + 1, 0).getDate();
     const prevMonthLastDay = new Date(year, month, 0).getDate();
-    const nextDaysIndex = 7 - day - 1;
-    const totalCells = (Math.ceil((day + lastDay)/7)*7)-1;
+    const totalCells = (Math.ceil((firstDayIndex + lastDay)/7)*7) + 1;
 
     //DATES
     monthText.innerText = monthName[month];
     yearText.innerText = year;
     dateText.innerText = weekday[day] + " " + numberDate + " de " + monthName[month] + ", " + year
 
-    for (i = day; i > 0; i--){
-        let prevDate = new Date( year, month, - i + 1)
+    for (let i = firstDayIndex - 1; i > 0; i--){
+        let prevDate = new Date( year, month, - i + 1);
         days += `<div 
         class="prev-days" 
         onclick="changeCellColor()" 
         data-day="${prevDate.getDate()}" 
         data-month="${prevDate.getMonth()}" 
         data-year="${prevDate.getFullYear()}" 
-        data-weekday="${prevDate.getDay()}"
-        >${prevMonthLastDay - i + 1}
-        <span></span>
-        </div>`
+        data-weekday="${prevDate.getDay()}">
+        ${prevMonthLastDay - i + 1}
+    </div>`
     };  //CALCULATES PREV MONTH DAYS TO SHOW
     
-    for (i = 1; i <= lastDay; i++){
+    for (let i = 1; i <= lastDay; i++){
         let currentDate = new Date(year, month, i)
         if (i === date.getDate() && month === new Date().getMonth()){
             days += `<div 
@@ -62,25 +63,23 @@ function renderCalendar(){
             data-day="${currentDate.getDate()}" 
             data-month="${currentDate.getMonth()}" 
             data-year="${currentDate.getFullYear()}" 
-            data-weekday="${currentDate.getDay()}"
-            >${i}
-            <span></span>
-            </div>`
+            data-weekday="${currentDate.getDay()}">
+            ${i}
+        </div>`
         } else{
             days += `<div 
             onclick="changeCellColor()" 
             data-day="${currentDate.getDate()}" 
             data-month="${currentDate.getMonth()}" 
             data-year="${currentDate.getFullYear()}" 
-            data-weekday="${currentDate.getDay()}"
-            >${i}
-            <span></span>
-            </div>`;
+            data-weekday="${currentDate.getDay()}">
+            ${i}
+        </div>`;
         }
     }   //CALCULATES CURRENT MONTH DAYS TO SHOW
 
-    let nextDays = totalCells - (day + lastDay) + 1
-    for (i = 1; i <= nextDays; i++){
+    let nextDays = totalCells - (firstDayIndex + lastDay)
+    for (let i = 1; i <= nextDays; i++){
         let nextDate = new Date(year, month + 1, i)
         days += `<div 
         class="next-days" 
@@ -88,12 +87,11 @@ function renderCalendar(){
         data-day="${nextDate.getDate()}" 
         data-month="${nextDate.getMonth()}" 
         data-year="${nextDate.getFullYear()}" 
-        data-weekday="${nextDate.getDay()}"
-        >${i}
-        <span></span>
-        </div>`
-        currentMonthDate.innerHTML = days
-    }   //CALCULATES NEXT MONTH DAYS TO SHOW
+        data-weekday="${nextDate.getDay()}">
+        ${i}
+    </div>`
+    };   //CALCULATES NEXT MONTH DAYS TO SHOW
+    currentMonthDate.innerHTML = days;
 }
 
 //PREV & NEXT FUNCTIONS
@@ -125,4 +123,6 @@ function changeCellColor(){
 }
 
 //INITIAL RENDER
-renderCalendar();
+document.addEventListener("DOMContentLoaded", renderCalendar());
+
+

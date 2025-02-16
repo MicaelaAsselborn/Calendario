@@ -40,8 +40,9 @@ function saveEvent(){
             end: endInputValue,
             };
 
-            let events = JSON.parse(localStorage.getItem("eventData"));
-            eventData.push(newEvent)
+            let events = JSON.parse(localStorage.getItem("eventData")) || [];
+            
+            eventData.push(newEvent);
 
             localStorage.setItem("eventData", JSON.stringify("events"));
 
