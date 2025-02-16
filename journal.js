@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", ()=>{
-
 //OPEN DIVS FUNCTIONS
 function addEvent(){
     document.querySelector(".background").style.display = "block";
@@ -53,5 +51,3 @@ function saveEvent(){
         }
     }
 }
-
-})
