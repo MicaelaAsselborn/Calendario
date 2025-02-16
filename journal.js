@@ -21,7 +21,6 @@ const startInput = document.querySelector("#event-init");
 const endInput = document.querySelector("#event-end");
 
 let eventData = JSON.parse(localStorage.getItem("eventData")) || [];
-let noteData = [];
 
 function saveEvent(){
 
@@ -48,4 +47,20 @@ function saveEvent(){
             console.log("Lista de eventos: ", eventData)
         }
     }
+} // SAVE EVENT DATA
+
+const note = document.querySelector("textarea");
+let noteData = JSON.parse(localStorage.getItem("noteData")) || [];
+
+function saveNote(){
+    const noteValue = note.value;
+    const newNote = {
+        note: noteValue,
+    };
+
+    noteData.push(newNote);
+    localStorage.setItem("noteData", JSON.stringify(noteData));
+
+    console.log("Note guardada: ", newNote);
+    console.log("Lista de notas: ", noteData);
 }

@@ -179,7 +179,7 @@ input{
 textarea{
     border: none;
     border-radius: 5px;
-    height: min(32%, 20vh);
+    height: 11rem;
 }
 h2{
     padding-bottom: 20px;
@@ -259,5 +259,11 @@ button{
     }
     button{
         width: 40%;
+    }
+    #event-creation, #note-creation{
+        height: 80dvh;
+    }
+    textarea{
+        height: 15rem;
     }
 }
