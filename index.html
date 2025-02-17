@@ -48,10 +48,18 @@
                     <div class="form-container">
                         <label for="event-name">Nombre del evento: </label>
                         <input type="text" id="event-name" required>
-                        <label for="event-init">Inicio del evento:</label>
+                        <label for="event-init">Fecha de inicio:</label>
                         <input type="date" id="event-init" required>
-                        <label for="event-end">Fin del evento:</label>
+                        <label for="event-end">Fecha de finalización:</label>
                         <input type="date" id="event-end" required>
+                        <label for="time-init">Hora de inicio:</label>
+                        <input type="time">
+                        <label for="time-end">Hora de finalización:</label>
+                        <input type="time">
+                        <div id="checkbox-container">
+                            <input type="checkbox" id="all-day-event">
+                            <label for="all-day-event">Todo el dia</label>
+                        </div>
                     </div>
                     <div class="modal-button-container">
                         <button id="save-event" onclick="saveEvent()">Agregar evento</button>
@@ -64,8 +72,11 @@
                         <i class="fa-solid fa-xmark close" onclick="closeDiv()"></i>
                     </div>
                     <h2>Nueva nota</h2>
-                    <textarea></textarea>
-                    <div class="modal-button-container">
+                    <label for="note-date">Fecha:</label>
+                    <input type="date">
+                    <label for="note">Nota:</label>
+                    <textarea id="note"></textarea>
+                    <div class="modal-button-container modal-2">
                         <button id="save-note" onclick="saveNote()">Agregar nota</button>
                     </div>
                 </form>
@@ -76,7 +87,7 @@
             <button id="add-note" onclick="addNote()">Agregar nota</button>
         </div>
     </div>
-    <script src="render-calendar.js"></script>
     <script src="journal.js"></script>
+    <script src="render-calendar.js"></script>
 </body>
 </html>

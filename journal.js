@@ -17,26 +17,32 @@ function closeDiv(){
 
 //SAVE INFO FUNCTIONS
 const nameInput = document.querySelector("#event-name");
-const startInput = document.querySelector("#event-init");
-const endInput = document.querySelector("#event-end");
+const startDateInput = document.querySelector("#event-init");
+const endDateInput = document.querySelector("#event-end");
+const startTimeInput = document.querySelector("#time-init");
+const endTimeInput = document.querySelector("#time-end");
 
 let eventData = JSON.parse(localStorage.getItem("eventData")) || [];
 
 function saveEvent(){
 
     const nameInputValue = nameInput.value;
-    const startInputValue = startInput.value;
-    const endInputValue = endInput.value;
+    const startDateInputValue = startDateInput.value;
+    const endDateInputValue = endDateInput.value;
+    const startTimeInputValue = startTimeInput.value;
+    const endTimeInputValue = endTimeInput.value;
 
-    if (nameInputValue && startInputValue && endInputValue){
-        if (startInputValue > endInputValue){
+    if (nameInputValue && startDateInputValue && endDateInputValue){
+        if (startDateInputValue > endDateInputValue){
             alert("¡La fecha de inicio no puede ser después que la fecha de finalización!")
         } else{
             const newEvent =
             {
             name: nameInputValue,
-            init: startInputValue,
-            end: endInputValue,
+            "date init": startDateInputValue,
+            "date end": endDateInputValue,
+            "time init": startTimeInputValue,
+            "time end": endTimeInputValue,
             };
 
             eventData.push(newEvent);
@@ -45,9 +51,15 @@ function saveEvent(){
 
             console.log("Evento guardado: ", newEvent)
             console.log("Lista de eventos: ", eventData)
+
+            addEventToCell()
         }
     }
 } // SAVE EVENT DATA
+console.log(eventData)
+function addEventToCell(){
+
+}
 
 const note = document.querySelector("textarea");
 let noteData = JSON.parse(localStorage.getItem("noteData")) || [];
@@ -63,4 +75,4 @@ function saveNote(){
 
     console.log("Note guardada: ", newNote);
     console.log("Lista de notas: ", noteData);
-}
+} //SAVE NOTE DATA

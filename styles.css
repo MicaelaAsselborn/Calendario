@@ -146,7 +146,7 @@ body{
     inset: 0;
     margin: auto;
     width: min(80vw, 400px);
-    height: min(70vw, 400px);
+    height: 88dvh;
     background-color: var(--pink);
     outline: 2px solid var(--white);
     border-radius: 10px;
@@ -169,12 +169,25 @@ label{
 }
 input{
     display: block;
-    margin: 5px auto 20px;
+    margin: 5px auto 10px;
     border: none;
     border-radius: 5px;
     width: 80%;
     height: 2rem;
     text-align: center;
+}
+#checkbox-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30px;
+}
+#checkbox-container label{
+    font-size: 1rem;
+}
+#all-day-event{
+    width: 1rem;
+    margin: 5px;
 }
 textarea{
     border: none;
@@ -190,6 +203,9 @@ h2{
     display: flex;
     justify-content: flex-end;
     margin-top: auto;
+}
+.modal-2{
+    margin-top: 10px;
 }
 #note-creation{
     position: absolute;
@@ -260,8 +276,11 @@ button{
     button{
         width: 40%;
     }
+    .modal-button-container button{
+        width: 50%;
+    }
     #event-creation, #note-creation{
-        height: 80dvh;
+        height: 90dvh;
     }
     textarea{
         height: 15rem;
