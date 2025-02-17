@@ -61,12 +61,15 @@ function addEventToCell(){
 
 }
 
+const noteDate = document.querySelector("#note-date")
 const note = document.querySelector("textarea");
 let noteData = JSON.parse(localStorage.getItem("noteData")) || [];
 
 function saveNote(){
+    const noteDateValue = noteDate.value;
     const noteValue = note.value;
     const newNote = {
+        date: noteDateValue,
         note: noteValue,
     };
 
