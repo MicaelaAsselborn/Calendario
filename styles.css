@@ -266,6 +266,7 @@ button{
     }
     #days div{
         width: calc(21rem/7);
+        height: 3rem;
     }
     #journal{
         width: 90vw;

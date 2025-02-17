@@ -18,7 +18,7 @@ const prevButton = document.querySelector(".prev");
 const nextButton = document.querySelector(".next");
 
 //DATES
-const options = {
+const dateFormat = {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -40,7 +40,7 @@ function renderCalendar(){
     //DATES
     monthText.innerText = monthName[month];
     yearText.innerText = year;
-    dateText.innerText = date.toLocaleDateString("es-ES", options);
+    dateText.innerText = date.toLocaleDateString("es-ES", dateFormat);
 
     for (let i = firstDayIndex; i > 0; i--){
         let prevDate = new Date(year, month - 1, prevMonthLastDay - (i - 1));
@@ -104,7 +104,7 @@ function changeCellColor(event){
 
     const selectedDay = new Date(clickedCell.getAttribute("data-date"))
 
-    dateText.innerText = selectedDay.toLocaleDateString("es-ES", options);
+    dateText.innerText = selectedDay.toLocaleDateString("es-ES", dateFormat);
     }
     
 //INITIAL RENDER
