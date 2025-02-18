@@ -47,27 +47,25 @@ function renderCalendar(){
         days += `<div 
         class="prev-days" 
         onclick="changeCellColor(event)" 
-        data-date="${prevDate.toDateString("es-ES", dateFormat)}">
+        data-date="${prevDate.toDateString()}">
         ${prevMonthLastDay - (i - 1)}
     </div>`
     };  //CALCULATES PREV MONTH DAYS TO SHOW
     
     for (let i = 1; i <= lastDay; i++){
+        const isToday = i === date.getDate() && month === new Date().getMonth()
         let currentDate = new Date(year, month, i)
-        if (i === date.getDate() && month === new Date().getMonth()){
-            days += `<div 
-            class="today day" 
+        let className = "";
+        if (isToday){
+            className +=" today"
+        } 
+        days += `<div 
+            class="${className}" 
             onclick="changeCellColor(event)" 
-            data-date="${currentDate.toDateString("es-ES", dateFormat)}">
-            ${i}
-        </div>`
-        } else{
-            days += `<div 
-            onclick="changeCellColor(event)" 
-            data-date="${currentDate.toDateString("es-ES", dateFormat)}">
+            data-date="${currentDate.toDateString()}">
             ${i}
         </div>`;
-        }
+        
     }   //CALCULATES CURRENT MONTH DAYS TO SHOW
 
     let nextDays = totalCells - (firstDayIndex + lastDay)
@@ -76,7 +74,7 @@ function renderCalendar(){
         days += `<div 
         class="next-days" 
         onclick="changeCellColor(event)" 
-        data-date="${nextDate.toDateString("es-ES", dateFormat)}">
+        data-date="${nextDate.toDateString()}">
         ${i}
     </div>`
     };   //CALCULATES NEXT MONTH DAYS TO SHOW
