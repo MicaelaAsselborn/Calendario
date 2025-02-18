@@ -47,7 +47,7 @@ function renderCalendar(){
         days += `<div 
         class="prev-days" 
         onclick="changeCellColor(event)" 
-        data-date="${prevDate.toLocaleDateString()}">
+        data-date="${prevDate.toDateString("es-ES", dateFormat)}">
         ${prevMonthLastDay - (i - 1)}
     </div>`
     };  //CALCULATES PREV MONTH DAYS TO SHOW
@@ -58,13 +58,13 @@ function renderCalendar(){
             days += `<div 
             class="today day" 
             onclick="changeCellColor(event)" 
-            data-date="${currentDate.toLocaleDateString()}">
+            data-date="${currentDate.toDateString("es-ES", dateFormat)}">
             ${i}
         </div>`
         } else{
             days += `<div 
             onclick="changeCellColor(event)" 
-            data-date="${currentDate.toLocaleDateString()}">
+            data-date="${currentDate.toDateString("es-ES", dateFormat)}">
             ${i}
         </div>`;
         }
@@ -76,7 +76,7 @@ function renderCalendar(){
         days += `<div 
         class="next-days" 
         onclick="changeCellColor(event)" 
-        data-date="${nextDate.toLocaleDateString()}">
+        data-date="${nextDate.toDateString("es-ES", dateFormat)}">
         ${i}
     </div>`
     };   //CALCULATES NEXT MONTH DAYS TO SHOW
