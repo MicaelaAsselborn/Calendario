@@ -1,61 +1,60 @@
-//GLOBAL VALUES
-const date = new Date();
-const day = date.getDay();
-const numberDate = date.getDate();
-const month = date.getMonth();
-const year = date.getFullYear();
+//GLOBAL DATE VALUES
+const date = new Date(); // GETS TODAY'S DATE 
+const day = date.getDay(); // GETS THE DAY OF THE WEEK
+const numberDate = date.getDate(); // GETS THE DAY OF THE MONTH
+const month = date.getMonth(); // GETS THE MONTH
+const year = date.getFullYear(); // GETS THE YEAR
 
-//ARRAYS
-const monthName = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agoto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-];
+// MONTH'S SPANISH NAMES
+const monthName = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agoto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-//QUERY SELECTOR
-const monthText = document.querySelector("#month");
-const yearText = document.querySelector("#year");
-const dateText = document.querySelector("#current-date");
-const currentMonthDate = document.querySelector("#days");
-const prevButton = document.querySelector(".prev");
-const nextButton = document.querySelector(".next");
+// HTML QUERY SELECTORS
+const monthText = document.querySelector("#month"); // GETS MONTH NAME AT THE TOP
+const yearText = document.querySelector("#year"); // GETS YEAR NUMBER AT THE TOP
+const dateText = document.querySelector("#current-date"); // GETS DATE TEXT IN THE JOURNAL
+const currentMonthDate = document.querySelector("#days"); // GETS DAYS CONTAINER IN THE CALENDAR
+const prevButton = document.querySelector(".prev"); // GETS PREVIOUS MONTH ARROW
+const nextButton = document.querySelector(".next"); // GETS FOLLOWING MONTH ARROW
 
-//DATES
 const dateFormat = {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
-    }
-monthText.innerText = monthName[month];
-yearText.innerText = year;
+    }; // FORMAT OF THE DATE TEXT
 
-//DAYS FUNCTION
+// VISIBLES DATES
+monthText.innerText = monthName[month]; // TRANSLATE MONTH'S NAME AT THE TOP TO SPANISH
+yearText.innerText = year; // SHOWS CURRENT YEAR AT THE TOP
+dateText.innerText = date.toLocaleDateString("es-ES", dateFormat); // SHOWS DATE IN SPANISH FORMAT IN THE JOURNAL
+
+// FUNCTIONS TO CALCULATE HOW MUCH DAYS GIVE TO PREV, CURRENT AND NEXT MONTH AND RENDER THE CALENDAR
 function renderCalendar(){
-    let days = "";
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    const firstDayIndex = (new Date(year, month, 1 ).getDay() + 6) % 7 ;
-    const lastDay = new Date(year, month + 1, 0).getDate();
-    const prevMonthLastDay = new Date(year, month, 0).getDate();
-    const totalCells = (Math.ceil((firstDayIndex + lastDay)/7)*7);
-
-    //DATES
-    monthText.innerText = monthName[month];
-    yearText.innerText = year;
-    dateText.innerText = date.toLocaleDateString("es-ES", dateFormat);
+    let days = ""; // INITIALIZE DAYS CELLS
+    const firstDayMonth = new Date (year, month, 1).getDay(); // GETS 1ST DAY OF THE MONTH'S INDEX
+    const firstDayToMonday = firstDayMonth + 6; // PUSH WEEKDAYS INDEX 6 FORWARD
+    const firstDayIndex = firstDayToMonday % 7; // GETS 1ST DAY OF THE MONTH INDEX (WEEKDAY) HAVING MONDAY AS 1ST DAY OF THE WEEK
+    const lastDay = new Date(year, month + 1, 0).getDate(); // GETS LAST DAY OF CURRENT MONTH
+    const prevMonthLastDay = new Date(year, month, 0).getDate(); // GETS LAST DAY OF PREVIOUS MONTH
+    const howManyRows = (firstDayIndex + lastDay)/7; // CALCULATES HOW MANY ROWS ARE NEEDED FOR THE TOTAL DAYS OF THE CURRENT MONTH
+    const rowsToInteger = Math.ceil(howManyRows); // MAKE THE AMOUNT OF ROWS A WHOLE NUMBER
+    const totalCells = rowsToInteger * 7; // CALCULATES TOTAL AMOUNT OF CELLS NEEDED FOR THE  CALENDAR GRID
 
     for (let i = firstDayIndex; i > 0; i--){
-        let prevDate = new Date(year, month - 1, prevMonthLastDay - (i - 1));
+        let prevDate = new Date(year, month - 1, prevMonthLastDay - (i - 1)); // CALCULATES HOW MANY DAYS OF THE PREVIOUS MONTH SHOW TO FILL THE ROW
+        let prevMonthRowFirstDay = prevMonthLastDay - (i - 1); // CALCULATES 1ST DAY TO SHOW ON PREV MONTH CELLS
         days += `<div 
         class="prev-days" 
         onclick="changeCellColor(event)" 
         data-date="${prevDate.toDateString()}">
-        ${prevMonthLastDay - (i - 1)}
+        ${prevMonthRowFirstDay}
     </div>`
-    };  //CALCULATES PREV MONTH DAYS TO SHOW
+    };
     
     for (let i = 1; i <= lastDay; i++){
-        const isToday = i === date.getDate() && month === new Date().getMonth()
-        let currentDate = new Date(year, month, i)
-        let className = "";
+        const isToday = i === date.getDate() && month === new Date().getMonth(); // CHECKS IF THE DAY CELL IS TODAY'S DATE
+        let currentDate = new Date(year, month, i); // GETS CURRENT MONTH AMOUNT OF DAYS
+        let className = ""; // INITIALIZE CLASSES TO ADD
         if (isToday){
             className +=" today"
         } 
